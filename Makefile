@@ -1,40 +1,39 @@
 NAME		:= libft.a
 
 SRCS		:= \
-	ft_bzero.c \
-	ft_memset.c \
 	ft_isalnum.c \
+	ft_isdigit.c \
 	ft_isalpha.c \
 	ft_isascii.c \
-	ft_isdigit.c \
 	ft_isprint.c \
-	ft_strlen.c \
-	ft_strlcpy.c \
-	ft_strlcat.c \
-	ft_memmove.c \
-	ft_strchr.c \
-	ft_strrchr.c \
-	ft_strncmp.c \
-	ft_memchr.c \
-	ft_memcmp.c \
-	ft_strnstr.c \
-	ft_tolower.c \
 	ft_toupper.c \
-	ft_strdup.c \
-	ft_substr.c \
-	ft_memcpy.c \
+	ft_tolower.c \
+	ft_atoi.c \
+	ft_memcmp.c \
+	ft_strncmp.c \
+	ft_strlen.c \
+	ft_strlcat.c \
+	ft_strlcpy.c \
+	ft_bzero.c \
+	ft_memset.c \
+	ft_calloc.c \
+	ft_memchr.c \
+	ft_memmove.c \
+	ft_striteri.c \
 	ft_putchar_fd.c \
 	ft_putendl_fd.c \
+	ft_putnbr_fd.c \
 	ft_putstr_fd.c \
-	ft_atoi.c \
-	ft_calloc.c \
+	ft_itoa.c \
+	ft_strdup.c \
+	ft_strchr.c \
+	ft_strrchr.c \
+	ft_split.c \
 	ft_strjoin.c \
 	ft_strtrim.c \
-	ft_putnbr_fd.c \
-	ft_split.c \
 	ft_strmapi.c \
-	ft_striteri.c \
-	ft_itoa.c \
+	ft_substr.c \
+	ft_strnstr.c \
 
 SRCSB		:= \
 	ft_lstnew_bonus.c \
@@ -44,18 +43,6 @@ OBJS		:= $(SRCS:%.c=$(BUILD_DIR)/%.o)
 OBJSB		:= $(SRCSB:%.c=$(BUILD_DIR)/%.o)
 DEPS		:= $(OBJS:.o=.d)
 DEPSB		:= $(OBJSB:.o=.d)
-
-# ********** COLORS AND BACKGROUND COLORS ************************************ #
-
-RESETC		:= \033[0m
-
-RED         := \e[0;31m
-GREEN       := \e[0;32m
-YELLOW      := \e[0;33m
-
-BGRED		:= \e[37;41m
-BGGREEN		:= \e[37;42m
-BGYELLOW	:= \e[37;43m
 
 # ********** FLAGS AND COMPILATION MODE ************************************** #
 
@@ -89,6 +76,7 @@ $(BUILD_DIR):
 	@echo "$(BGYELLOW)CREATED $(BUILD_DIR) directory$(RESETC)"
 
 -include $(DEPS)
+-include $(DEPSB)
 
 clean:
 	@$(RM) $(OBJS) $(DEPS)
@@ -107,6 +95,14 @@ bonus: $(NAME) $(OBJSB) .bonus
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
 
 .SILENT: clean fclean
+
+# ********** COLORS AND BACKGROUND COLORS ************************************ #
+
+RESETC		:= \033[0m
+
+BGRED		:= \e[37;41m
+BGGREEN		:= \e[37;42m
+BGYELLOW	:= \e[37;43m
