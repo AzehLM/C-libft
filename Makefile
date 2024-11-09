@@ -45,7 +45,7 @@ OBJSB		:= $(SRCSB:%.c=$(BUILD_DIR)/%.o)
 DEPS		:= $(OBJS:.o=.d)
 DEPSB		:= $(OBJSB:.o=.d)
 
-# ********** COLORS AND BACKGROUND COLORS **********
+# ********** COLORS AND BACKGROUND COLORS ************************************ #
 
 RESETC		:= \033[0m
 
@@ -73,6 +73,8 @@ MAKEFLAGS   += --no-print-directory
 DIR_DUP     = mkdir -p $(BUILD_DIR)
 
 
+# ********** RULES *********************************************************** #
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
@@ -93,25 +95,17 @@ clean:
 	@echo "$(BGRED)DELETED OBJS and DEPS$(RESETC)"
 
 fclean: clean
-	$(RM) $(RMDIR) $(NAME) $(BUILD_DIR) libft.so
+	$(RM) $(RMDIR) $(NAME) $(BUILD_DIR) .bonus
 	@echo "$(BGRED)DELETED $(NAME) and $(BUILD_DIR)$(RESETC)"
 
-bonus:	$(NAME) $(OBJSB)
+bonus: $(NAME) $(OBJSB) .bonus
+
+.bonus: $(OBJSB)
 	@$(AR) $(ARFLAGS) $(NAME) $(OBJSB)
-	@echo "$(BGGREEN)ADDED $@ files$(RESETC)"
+	@echo "$(BGGREEN)ADDED bonus files$(RESETC)"
+	@touch .bonus
 
 re: fclean all
-
-#######################
-#     FANCY TESTER    #
-#######################
-
-so: CFLAGS += -fPIC
-so: $(OBJS) $(OBJSB)
-	$(CC) -shared -o libft.so $(OBJS) $(OBJSB)
-	@echo "$(GREEN)CREATED libft.so$(RESETC)"
-
-#######################
 
 .PHONY: all clean fclean re
 

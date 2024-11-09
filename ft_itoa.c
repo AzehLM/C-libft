@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 12:35:44 by gueberso          #+#    #+#             */
-/*   Updated: 2024/11/09 17:44:25 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/11/09 19:33:07 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ char	*ft_itoa(int n)
 	res = ft_calloc(len + 1, sizeof(char));
 	if (!res)
 		return (NULL);
-
 	len--;
 	nb = n;
 	if (n < 0)
