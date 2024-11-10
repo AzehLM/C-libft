@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:15:58 by gueberso          #+#    #+#             */
-/*   Updated: 2024/11/08 10:46:25 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/11/11 00:13:24 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ static void	*ft_free(char **split, size_t len)
 	return (NULL);
 }
 
-static int	count_string(const char *s, char c)
+static size_t	count_string(const char *s, char c)
 {
-	int	i;
-	int	count;
+	size_t	i;
+	size_t		count;
 
 	i = 0;
 	count = 0;
@@ -52,9 +52,9 @@ static int	count_string(const char *s, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**split;
-	int		i;
-	int		j;
-	int		k;
+	size_t	i;
+	size_t	j;
+	size_t	k;
 
 	if (!s)
 		return (NULL);
@@ -72,7 +72,7 @@ char	**ft_split(char const *s, char c)
 			i++;
 		split[j] = ft_substr(s, k, (i - k));
 		if (!split[j++])
-			return (ft_free(split, j));
+			return (ft_free(split, j - 1));
 	}
 	split[j] = 0;
 	return (split);
