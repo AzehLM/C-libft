@@ -98,8 +98,6 @@ fclean: clean
 	$(RM) $(RMDIR) $(NAME) $(BUILD_DIR) .bonus
 	@echo "$(BGRED)DELETED $(NAME) and $(BUILD_DIR)$(RESETC)"
 
-
-
 re: fclean all
 
 .PHONY: all clean fclean re bonus

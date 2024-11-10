@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 13:44:14 by gueberso          #+#    #+#             */
-/*   Updated: 2024/11/10 12:53:13 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/11/10 23:32:15 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 
-/*	----------- bonus_functions --------------------------------------------- */
+/*	----------- chained_list_functions -------------------------------------- */
 
 typedef struct s_list
 {
