@@ -19,6 +19,7 @@ SRCS		:= \
 	ft_calloc.c \
 	ft_memchr.c \
 	ft_memmove.c \
+	ft_memcpy.c \
 	ft_striteri.c \
 	ft_putchar_fd.c \
 	ft_putendl_fd.c \
@@ -37,6 +38,11 @@ SRCS		:= \
 
 SRCSB		:= \
 	ft_lstnew_bonus.c \
+	ft_lstlast_bonus.c \
+	ft_lstadd_back_bonus.c \
+	ft_lstadd_front_bonus.c \
+	ft_lstsize_bonus.c \
+	ft_lstdelone_bonus.c \
 
 BUILD_DIR	:= .build
 OBJS		:= $(SRCS:%.c=$(BUILD_DIR)/%.o)
@@ -59,6 +65,8 @@ RMDIR       += -r
 MAKEFLAGS   += --no-print-directory
 DIR_DUP     = mkdir -p $(BUILD_DIR)
 
+-include $(DEPS)
+-include $(DEPSB)
 
 # ********** RULES *********************************************************** #
 
@@ -75,8 +83,12 @@ $(BUILD_DIR):
 	@$(DIR_DUP)
 	@echo "$(BGYELLOW)CREATED $(BUILD_DIR) directory$(RESETC)"
 
--include $(DEPS)
--include $(DEPSB)
+bonus: $(NAME) $(OBJSB) .bonus
+
+.bonus: $(OBJSB)
+	@$(AR) $(ARFLAGS) $(NAME) $(OBJSB)
+	@echo "$(BGGREEN)ADDED bonus files$(RESETC)"
+	@touch .bonus
 
 clean:
 	@$(RM) $(OBJS) $(DEPS)
@@ -86,12 +98,7 @@ fclean: clean
 	$(RM) $(RMDIR) $(NAME) $(BUILD_DIR) .bonus
 	@echo "$(BGRED)DELETED $(NAME) and $(BUILD_DIR)$(RESETC)"
 
-bonus: $(NAME) $(OBJSB) .bonus
 
-.bonus: $(OBJSB)
-	@$(AR) $(ARFLAGS) $(NAME) $(OBJSB)
-	@echo "$(BGGREEN)ADDED bonus files$(RESETC)"
-	@touch .bonus
 
 re: fclean all
 
