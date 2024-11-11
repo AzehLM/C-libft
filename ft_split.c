@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:15:58 by gueberso          #+#    #+#             */
-/*   Updated: 2024/11/11 14:34:16 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/11/11 23:10:34 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,28 +52,28 @@ static size_t	count_string(const char *s, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**split;
+	size_t	len;
 	size_t	i;
-	size_t	j;
-	size_t	k;
+	size_t	start;
 
 	if (!s)
 		return (NULL);
 	split = malloc(sizeof(char *) * (count_string(s, c) + 1));
 	if (!split)
 		return (NULL);
+	len = 0;
 	i = 0;
-	j = 0;
-	while (s[i] && j < (count_string(s, c)))
+	while (s[len] && i < (count_string(s, c)))
 	{
-		while (s[i] && s[i] == c)
-			i++;
-		k = i;
-		while (s[i] && s[i] != c)
-			i++;
-		split[j] = ft_substr(s, k, (i - k));
-		if (!split[j++])
-			return (ft_free(split, j - 1));
+		while (s[len] && s[len] == c)
+			len++;
+		start = len;
+		while (s[len] && s[len] != c)
+			len++;
+		split[i] = ft_substr(s, start, (len - start));
+		if (!split[i++])
+			return (ft_free(split, i - 1));
 	}
-	split[j] = 0;
+	split[i] = 0;
 	return (split);
 }
