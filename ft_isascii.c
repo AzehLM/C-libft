@@ -6,11 +6,9 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 13:52:30 by gueberso          #+#    #+#             */
-/*   Updated: 2024/11/05 00:24:31 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/11/11 23:33:28 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_isascii(int c)
 {

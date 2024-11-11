@@ -6,11 +6,9 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 13:41:57 by gueberso          #+#    #+#             */
-/*   Updated: 2024/11/01 13:48:50 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/11/11 23:33:22 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_isdigit(int c)
 {

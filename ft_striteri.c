@@ -6,11 +6,9 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 12:13:36 by gueberso          #+#    #+#             */
-/*   Updated: 2024/11/08 12:18:24 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/11/11 23:32:28 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {

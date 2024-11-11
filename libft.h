@@ -6,20 +6,16 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 13:44:14 by gueberso          #+#    #+#             */
-/*   Updated: 2024/11/11 17:24:46 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/11/11 23:31:14 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
-# include <string.h>
-# include <ctype.h>
-# include <limits.h>
 # include <stdint.h>
+
 # define SIZE_MAX_SQRT 4294967295
 
 /*	----------- int_functions ----------------------------------------------- */
@@ -52,7 +48,7 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
 
-/*	----------- char*_functions --------------------------------------------- */
+/*	----------- char_functions --------------------------------------------- */
 
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);

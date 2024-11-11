@@ -6,11 +6,12 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 00:32:49 by gueberso          #+#    #+#             */
-/*   Updated: 2024/11/09 17:35:32 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/11/11 23:30:03 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 
 int	ft_atoi(const char *nptr)
 {

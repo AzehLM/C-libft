@@ -6,11 +6,9 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 13:35:33 by gueberso          #+#    #+#             */
-/*   Updated: 2024/11/05 00:26:44 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/11/11 23:33:33 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_isalpha(int c)
 {
