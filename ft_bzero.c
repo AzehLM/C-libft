@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 14:51:57 by gueberso          #+#    #+#             */
-/*   Updated: 2024/11/02 01:28:14 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/11/11 22:16:33 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*str;
-	size_t			i;
+	uint8_t	*str;
+	size_t	i;
 
 	i = 0;
-	str = (unsigned char *) s;
+	str = (uint8_t *) s;
 	while (i < n)
 	{
 		str[i] = 0;

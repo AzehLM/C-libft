@@ -53,21 +53,21 @@ OBJSB		:= $(SRCSB:%.c=$(BUILD_DIR)/%.o)
 DEPS		:= $(OBJS:.o=.d)
 DEPSB		:= $(OBJSB:.o=.d)
 
-# ********** FLAGS AND COMPILATION MODE ************************************** #
+# ********** FLAGS AND COMPILATION FLAGS ************************************** #
 
-CC			:= cc
+CC		:= cc
 CFLAGS		:= -Wall -Wextra -Werror -g3
-CPPFLAGS    := -MMD -MP -I .
+CPPFLAGS	:= -MMD -MP -I .
 
-AR			:= ar
+AR		:= ar
 ARFLAGS		:= -r -c -s
 
-RM          := rm -f
-RMDIR       += -r
-MAKEFLAGS   += --no-print-directory
-DIR_DUP     = mkdir -p $(BUILD_DIR)
+RM		:= rm -f
+RMDIR		+= -r
+MAKEFLAGS	+= --no-print-directory
+DIR_DUP		= mkdir -p $(BUILD_DIR)
 
-.DEFAULT_GOAL := all
+.DEFAULT_GOAL	:= all
 
 # ********** RULES *********************************************************** #
 
@@ -85,22 +85,22 @@ $(BUILD_DIR)/%.o: %.c | $(BUILD_DIR)
 
 $(BUILD_DIR):
 	@$(DIR_DUP)
-	@echo "$(BGYELLOW)CREATED $(BUILD_DIR) directory$(RESETC)"
+	@echo "$(BGYELLOW)CREATED $(BUILD_DIR) DIRECTORY$(RESETC)"
 
 bonus: .bonus
 
 .bonus: $(OBJSB) $(OBJS)
 	@$(AR) $(ARFLAGS) $(NAME) $(OBJSB) $(OBJS)
-	@echo "$(BGGREEN)ADDED bonus files$(RESETC)"
+	@echo "$(BGGREEN)SUCCESSFULLY CREATED libft.a WITH BONUS FILES $(RESETC)"
 	@touch .bonus
 
 clean:
 	@$(RM) $(OBJS) $(DEPS)
-	@echo "$(BGRED)DELETED OBJS and DEPS$(RESETC)"
+	@echo "$(BGRED)DELETED OBJS AND DEPS$(RESETC)"
 
 fclean: clean
 	$(RM) $(RMDIR) $(NAME) $(BUILD_DIR) .bonus
-	@echo "$(BGRED)DELETED $(NAME) and $(BUILD_DIR)$(RESETC)"
+	@echo "$(BGRED)DELETED $(NAME) AND $(BUILD_DIR)$(RESETC)"
 
 re: fclean all
 

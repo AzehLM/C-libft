@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 19:49:48 by gueberso          #+#    #+#             */
-/*   Updated: 2024/11/10 23:48:50 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/11/11 22:19:50 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	unsigned char	*dest2;
-	unsigned char	*src2;
-	size_t			i;
+	uint8_t	*dest2;
+	uint8_t	*src2;
+	size_t	i;
 
 	if (!dest && !src)
 		return (NULL);
-	dest2 = (unsigned char *) dest;
-	src2 = (unsigned char *) src;
+	dest2 = (uint8_t *) dest;
+	src2 = (uint8_t *) src;
 	i = 0;
 	while (i < n)
 	{
