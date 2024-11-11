@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:15:58 by gueberso          #+#    #+#             */
-/*   Updated: 2024/11/11 00:13:24 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/11/11 14:34:16 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	*ft_free(char **split, size_t len)
 static size_t	count_string(const char *s, char c)
 {
 	size_t	i;
-	size_t		count;
+	size_t	count;
 
 	i = 0;
 	count = 0;
