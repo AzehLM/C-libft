@@ -55,14 +55,14 @@ DEPSB		:= $(OBJSB:.o=.d)
 
 # ********** FLAGS AND COMPILATION FLAGS ************************************** #
 
-CC		:= cc
+CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror -g3
 CPPFLAGS	:= -MMD -MP -I .
 
-AR		:= ar
+AR			:= ar
 ARFLAGS		:= -r -c -s
 
-RM		:= rm -f
+RM			:= rm -f
 RMDIR		+= -r
 MAKEFLAGS	+= --no-print-directory
 DIR_DUP		= mkdir -p $(BUILD_DIR)
@@ -115,3 +115,5 @@ RESETC		:= \033[0m
 BGRED		:= \e[37;41m
 BGGREEN		:= \e[37;42m
 BGYELLOW	:= \e[37;43m
+
+
