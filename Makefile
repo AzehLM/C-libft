@@ -53,7 +53,7 @@ OBJSB		:= $(SRCSB:%.c=$(BUILD_DIR)/%.o)
 DEPS		:= $(OBJS:.o=.d)
 DEPSB		:= $(OBJSB:.o=.d)
 
-# ********** FLAGS AND COMPILATION FLAGS ************************************** #
+# ********** FLAGS AND COMPILATION FLAGS ************************************* #
 
 CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror -g3
