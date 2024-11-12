@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:15:58 by gueberso          #+#    #+#             */
-/*   Updated: 2024/11/11 23:10:34 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/11/12 09:08:20 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	*ft_free(char **split, size_t len)
 	return (NULL);
 }
 
-static size_t	count_string(const char *s, char c)
+static size_t	ft_count_string(const char *s, char c)
 {
 	size_t	i;
 	size_t	count;
@@ -58,12 +58,12 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	split = malloc(sizeof(char *) * (count_string(s, c) + 1));
+	split = malloc(sizeof(char *) * (ft_count_string(s, c) + 1));
 	if (!split)
 		return (NULL);
 	len = 0;
 	i = 0;
-	while (s[len] && i < (count_string(s, c)))
+	while (s[len] && i < (ft_count_string(s, c)))
 	{
 		while (s[len] && s[len] == c)
 			len++;
