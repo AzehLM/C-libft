@@ -1,63 +1,16 @@
 NAME		:= libft.a
 
-SRCS		:= \
-	ft_atoi.c \
-	ft_bzero.c \
-	ft_calloc.c \
-	ft_isalnum.c \
-	ft_isalpha.c \
-	ft_isascii.c \
-	ft_isdigit.c \
-	ft_isprint.c \
-	ft_itoa.c \
-	ft_memchr.c \
-	ft_memcmp.c \
-	ft_memcpy.c \
-	ft_memmove.c \
-	ft_memset.c \
-	ft_putchar_fd.c \
-	ft_putendl_fd.c \
-	ft_putnbr_fd.c \
-	ft_putstr_fd.c \
-	ft_split.c \
-	ft_strchr.c \
-	ft_strdup.c \
-	ft_striteri.c \
-	ft_strjoin.c \
-	ft_strlcat.c \
-	ft_strlcpy.c \
-	ft_strlen.c \
-	ft_strmapi.c \
-	ft_strncmp.c \
-	ft_strnstr.c \
-	ft_strrchr.c \
-	ft_strtrim.c \
-	ft_substr.c \
-	ft_tolower.c \
-	ft_toupper.c \
+include libft.mk
 
-SRCSB		:= \
-	ft_lstadd_back_bonus.c \
-	ft_lstadd_front_bonus.c \
-	ft_lstclear_bonus.c \
-	ft_lstdelone_bonus.c \
-	ft_lstiter_bonus.c \
-	ft_lstlast_bonus.c \
-	ft_lstnew_bonus.c \
-	ft_lstsize_bonus.c \
-	ft_lstmap_bonus.c \
-	
-BUILD_DIR	:= .build
-OBJS		:= $(SRCS:%.c=$(BUILD_DIR)/%.o)
-OBJSB		:= $(SRCSB:%.c=$(BUILD_DIR)/%.o)
+BUILD_DIR	:= .build/
+OBJS 		:= $(patsubst $(SRCSDIR)%.c,$(BUILD_DIR)%.o,$(SRCS))
 DEPS		:= $(OBJS:.o=.d)
-DEPSB		:= $(OBJSB:.o=.d)
 
 # ********** FLAGS AND COMPILATION FLAGS ************************************* #
 
 CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror -g3
-CPPFLAGS	:= -MMD -MP -I .
+CPPFLAGS	:= -MMD -MP -I . -I incs
 
 AR			:= ar
 ARFLAGS		:= -r -c -s
@@ -72,7 +25,6 @@ DIR_DUP		= mkdir -p $(BUILD_DIR)
 # ********** RULES *********************************************************** #
 
 -include $(DEPS)
--include $(DEPSB)
 
 all: $(NAME)
 
@@ -80,31 +32,21 @@ $(NAME): $(OBJS)
 	@$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 	@echo "$(BGGREEN)SUCCESSFULLY CREATED $@$(RESETC)"
 
-$(BUILD_DIR)/%.o: %.c | $(BUILD_DIR)
+$(BUILD_DIR)%.o: $(SRCSDIR)%.c
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
-
-$(BUILD_DIR):
-	@$(DIR_DUP)
-	@echo "$(BGYELLOW)CREATED $(BUILD_DIR) DIRECTORY$(RESETC)"
-
-bonus: .bonus
-
-.bonus: $(OBJSB) $(OBJS)
-	@$(AR) $(ARFLAGS) $(NAME) $(OBJSB) $(OBJS)
-	@echo "$(BGGREEN)SUCCESSFULLY CREATED libft.a WITH BONUS FILES $(RESETC)"
-	@touch .bonus
 
 clean:
 	@$(RM) $(OBJS) $(DEPS)
 	@echo "$(BGRED)DELETED OBJS AND DEPS$(RESETC)"
 
 fclean: clean
-	$(RM) $(RMDIR) $(NAME) $(BUILD_DIR) .bonus
+	$(RM) $(RMDIR) $(NAME) $(BUILD_DIR)
 	@echo "$(BGRED)DELETED $(NAME) AND $(BUILD_DIR)$(RESETC)"
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
 
 .SILENT: clean fclean
 
