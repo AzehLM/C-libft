@@ -10,7 +10,7 @@ DEPS		:= $(OBJS:.o=.d)
 
 CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror -g3
-CPPFLAGS	:= -MMD -MP -I . -I incs
+CPPFLAGS	:= -MMD -MP -I . -I incs/
 
 AR			:= ar
 ARFLAGS		:= -r -c -s
@@ -57,5 +57,3 @@ RESETC		:= \033[0m
 BGRED		:= \e[37;41m
 BGGREEN		:= \e[37;42m
 BGYELLOW	:= \e[37;43m
-
-

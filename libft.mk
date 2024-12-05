@@ -6,21 +6,23 @@
 #    By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/14 10:09:03 by gueberso          #+#    #+#              #
-#    Updated: 2024/11/14 12:25:59 by gueberso         ###   ########.fr        #
+#    Updated: 2024/12/05 20:00:50 by gueberso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-override SRCSDIR := srcs/
-override SRCS	= $(addprefix $(SRCSDIR),$(SRC))
+override SRCSDIR	:= srcs/
+override SRCS		= $(addprefix $(SRCSDIR),$(SRC))
 
 SRC += $(addprefix $(CHARDIR), $(addsuffix .c, $(CHARSRC)))
 
-override CHARDIR := charset/
-override FDDIR := fd/
-override INTDIR := int/
-override LISTDIR := list/
-override MEMORYDIR := memory/
-override STRINGDIR := string/
+override CHARDIR	:= charset/
+override FDDIR		:= fd/
+override PRINTFDIR	:= ft_printf/
+override GNLDIR		:= gnl/
+override INTDIR		:= int/
+override LISTDIR	:= list/
+override MEMORYDIR	:= memory/
+override STRINGDIR	:= string/
 
 override CHARSRC := \
 	ft_isalnum \
@@ -33,7 +35,6 @@ override CHARSRC := \
 
 SRC += $(addprefix $(FDDIR), $(addsuffix .c, $(FDSRC)))
 
-
 override FDSRC := \
 	ft_putchar_fd \
 	ft_putendl_fd \
@@ -42,13 +43,11 @@ override FDSRC := \
 
 SRC += $(addprefix $(INTDIR), $(addsuffix .c, $(INTSRC)))
 
-
 override INTSRC := \
 	ft_atoi \
 	ft_itoa \
 
 SRC += $(addprefix $(LISTDIR), $(addsuffix .c, $(LISTSRC)))
-
 
 override LISTSRC := \
 	ft_lstadd_back \
@@ -63,7 +62,6 @@ override LISTSRC := \
 
 SRC += $(addprefix $(MEMORYDIR), $(addsuffix .c, $(MEMORYSRC)))
 
-
 override MEMORYSRC := \
 	ft_bzero \
 	ft_calloc \
@@ -74,7 +72,6 @@ override MEMORYSRC := \
 	ft_memmove \
 
 SRC += $(addprefix $(STRINGDIR), $(addsuffix .c, $(STRINGSRC)))
-
 
 override STRINGSRC := \
 	ft_split \
@@ -92,3 +89,15 @@ override STRINGSRC := \
 	ft_strtrim \
 	ft_substr \
 
+SRC += $(addprefix $(GNLDIR), $(addsuffix .c, $(GNLSRC)))
+
+override GNLSRC := \
+	get_next_line \
+	get_next_line_utils \
+
+SRC += $(addprefix $(PRINTFDIR), $(addsuffix .c, $(PRINTFSRC)))
+
+override PRINTFSRC := \
+	ft_printf_convert \
+	ft_printf_utils \
+	ft_printf \
