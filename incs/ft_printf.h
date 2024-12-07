@@ -16,7 +16,7 @@
 # include <stdbool.h>
 # include <unistd.h>
 
-typedef struct s_list
+typedef struct s_flags
 {
 	bool	hash;
 	bool	space;
