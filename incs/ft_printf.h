@@ -31,7 +31,7 @@ int		ft_puthexa_lowercase(unsigned long n);
 int		ft_putnbr_base(unsigned long nbr, char *base);
 int		ft_putnbr_bonus(int n, t_flags flags, long ten_power, int count);
 int		ft_putstr(char *str);
-int		ft_strlen(const char *s);
+int		ft_strlen_secured(const char *s);
 int		ft_unsigned_decimal(unsigned int n);
 
 int		ft_printf(const char *format, ...)
