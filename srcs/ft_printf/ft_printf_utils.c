@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_strlen(const char *s)
+int	ft_strlen_secured(const char *s)
 {
 	int	count;
 
