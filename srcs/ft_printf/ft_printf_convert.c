@@ -17,7 +17,7 @@ int	ft_putnbr_base(unsigned long nbr, char *base)
 	unsigned long	len_base;
 	int				count;
 
-	len_base = ft_strlen(base);
+	len_base = ft_strlen_secured(base);
 	count = 0;
 	if (nbr >= len_base)
 	{
