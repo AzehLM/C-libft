@@ -30,19 +30,19 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@$(AR) $(ARFLAGS) $(NAME) $(OBJS)
-	@echo "$(BGGREEN)SUCCESSFULLY CREATED $@$(RESETC)"
+	@echo "\n$(GREEN_BOLD)✓ $(NAME) is ready$(RESETC)\n"
 
 $(BUILD_DIR)%.o: $(SRCSDIR)%.c
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
+	@echo "$(CYAN)[Compiling]$(RESETC) $<"
+	@$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
 
 clean:
 	@$(RM) $(OBJS) $(DEPS)
-	@echo "$(BGRED)DELETED OBJS AND DEPS$(RESETC)"
 
 fclean: clean
 	$(RM) $(RMDIR) $(NAME) $(BUILD_DIR)
-	@echo "$(BGRED)DELETED $(NAME) AND $(BUILD_DIR)$(RESETC)"
+	@echo "$(RED_BOLD)✓ libft is fully cleaned!$(RESETC)"
 
 re: fclean all
 
@@ -52,8 +52,11 @@ re: fclean all
 
 # ********** COLORS AND BACKGROUND COLORS ************************************ #
 
-RESETC		:= \033[0m
+RESETC				:= \033[0m
 
-BGRED		:= \e[37;41m
-BGGREEN		:= \e[37;42m
-BGYELLOW	:= \e[37;43m
+BGRED				:= \033[37;41m
+BGGREEN				:= \033[37;42m
+BGYELLOW			:= \033[37;43m
+GREEN_BOLD			:= \033[1;32m
+RED_BOLD			:= \033[1;31m
+CYAN				:= \033[0;36m
